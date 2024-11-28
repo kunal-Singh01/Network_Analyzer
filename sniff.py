@@ -2,7 +2,6 @@ import scapy.all as scapy
 import sqlite3
 from collections import defaultdict
 import time
-
 # Create or connect to the SQLite database
 conn = sqlite3.connect('sniffed_packets.db')
 cursor = conn.cursor()
