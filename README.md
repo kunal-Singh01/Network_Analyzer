@@ -1,76 +1,101 @@
-# Network_Analyzer
+######################Packet Sniffing and Protocol Analysis#######################
 
-# MITM and Packet Sniffing Attacks: Impact, Analysis, and Countermeasure
+This project is a Python-based packet sniffing tool built using the scapy library. It analyzes network traffic in real time, focusing on HTTP and DNS protocols, logs packet data into an SQLite database, and provides periodic statistical insights.
 
-## Project Overview
+**Features**
+1)Real-Time Packet Capture
+--Captures packets over IP protocols.
+--Analyzes HTTP and DNS traffic.
 
-This project focuses on Man-in-the-Middle (MITM) and packet sniffing attacks, examining their **impact**, **detection methods**, and potential **countermeasures**. Packet sniffing, also known as *Network Analysis*, is an essential area in computer security, providing insight into network traffic by monitoring all outgoing and incoming data packets on a specific network. The project involves using a network analyzer tool to conduct surveillance on network packets under appropriate authorization.
+2)Packet Analysis
+--Displays source/destination IPs and protocols for captured packets.
+--Decodes and displays HTTP payloads.
+--Identifies DNS queries.
 
-## Objective
+3)SQLite Logging
+--Stores captured packet details in an SQLite database for persistence.
 
-Our primary goal is to analyze internet traffic to understand the patterns, identify vulnerabilities, and implement effective countermeasures for packet sniffing attacks. With the necessary permissions from the university, we aim to assess a specific network ethically and responsibly.
+4)Real-Time Traffic Reporting
+--Provides periodic traffic insights.
+--Detects anomalies, such as high-volume TCP/UDP traffic.
 
-## Project Features
 
-- **Real-time Packet Monitoring**: Captures all packets traveling through the network, monitoring source and destination details.
-- **Traffic Analysis**: Analyzes protocol types (e.g., TCP, UDP) and highlights any unusual or suspicious activity.
-- **Report Generation**: Generates detailed reports based on traffic patterns, including potential MITM attacks.
-- **Countermeasure Implementation**: Suggests or implements measures to protect against sniffing attacks, such as secure protocols or encryption.
-- **Permission-based Operation**: Ensures ethical use of the network analyzer by requiring authorization for deployment.
+######Installation#######
 
-## Technologies Used
+**Prerequisites**
 
-- **Python**: For scripting packet capture and analysis.
-- **Scapy**: To perform packet manipulation and network traffic analysis.
-- **Matplotlib**: To visualize network traffic and trends.
+1)Python 3.x
+2)Required Python libraries:
+   --Scapy for packet sniffing.
+   --SQLite3 (default in Python) for database management.
+   
+**Steps**
 
-## Installation Guide
+1)Clone the repository:
 
-1. **Install Dependencies**:
-   - Python 3.x
-   - Scapy
-   - Matplotlib
+git clone https://github.com/kunal-Singh01/Network_Analyzer.git
+cd Network_Analyzer
 
-   ```bash
-   pip install scapy matplotlib
-   ```
+2)Install dependencies:
 
-2. **Run the Analyzer**:
-   ```bash
-   python packet_analyzer.py
-   ```
+pip install scapy
 
-   Ensure you have the necessary permissions from network administrators before initiating traffic monitoring.
 
-## Usage
+**Usage**
 
-- **Basic Packet Capture**: The analyzer captures all packets and logs relevant details to the console or a file.
-- **Custom Filtering**: Specify protocols, IP addresses, or ports for a targeted analysis.
-- **Report Submission**: After completing the analysis, submit your report to your supervising faculty members as per the university guidelines.
+1)Run the tool with superuser privileges (required for network sniffing):
 
-## Code Structure
+sudo python sniffing_tool.py
 
-- `packet_analyzer.py`: Main script to capture and analyze network packets.
-- `report_generator.py`: Module for generating analysis reports and logging data.
-- `visualization.py`: Module to visualize traffic patterns and trends.
-  
-## Example Output
+2)The program will:
+--Capture and display details of live packets.
+--Log packets in the sniffed_packets.db database.
+--Print periodic traffic reports every 10 seconds.
+--Customize the sniffing filter by modifying the filter argument in the scapy.sniff call (e.g., "tcp port 80" for HTTP traffic).
 
-Below are some sample outputs to help understand the expected results:
+**Database Schema**
+Table: packets
 
-- **Traffic Summary**: Overview of the protocols and packet counts.
-- **Potential Attacks Detected**: List of flagged activities suggesting a MITM attack.
+**Real-Time Reporting**
+--Traffic Insights: Displays total packets captured and counts per protocol.
+--Anomaly Detection:
+   --Alerts for high TCP/UDP traffic volumes.
 
-## Contribution Guidelines
 
-Contributions are welcome! Please fork the repository, make improvements, and submit a pull request. Feel free to open issues for bug reports, feature requests, or discussions.
+**Customization**
+--Filter Protocols/Ports:
+   --Update the filter argument in scapy.sniff to target specific protocols or ports (e.g., "tcp and port 443" for HTTPS traffic).
 
-## License
+--Report Interval:
+   --Modify REPORT_INTERVAL (default: 10 seconds) to adjust the reporting frequency.
 
-This project is licensed under the MIT License. Ensure that you comply with ethical and legal guidelines when using this tool on any network.
+**Disclaimer**
+This tool is for educational purposes only. Unauthorized use of packet sniffing tools may violate laws or regulations in your jurisdiction. Always ensure proper permissions before monitoring network traffic.
 
-## Future Enhancements
+**License**
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-- Add support for additional protocols.
-- Enhance detection algorithms for MITM attacks.
-- Integrate real-time alerting for suspicious activity.
+**Contributing**
+1)Fork the repository.
+2)Create a new branch (feature/new-feature).
+3)Commit changes and open a pull request.
+
+
+**Example Output**
+Console Output:
+
+Source IP: 192.168.1.5 | Destination IP: 192.168.1.1 | Protocol: 6
+HTTP Payload (first 50 characters): GET /index.html HTTP/1.1
+DNS Query: 192.168.1.5 is querying 8.8.8.8
+
+--- Real-Time Traffic Report ---
+Total Packets Captured: 50
+Protocol TCP: 30 packets
+Protocol UDP: 20 packets
+ALERT: Unusually high number of UDP packets detected!
+
+
+
+**Author**
+Kunal Singh
+
