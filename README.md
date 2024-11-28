@@ -49,21 +49,21 @@ pip install scapy
 sudo python sniffing_tool.py
 
 2)The program will:
+
 --Capture and display details of live packets.
 --Log packets in the sniffed_packets.db database.
 --Print periodic traffic reports every 10 seconds.
 --Customize the sniffing filter by modifying the filter argument in the scapy.sniff call (e.g., "tcp port 80" for HTTP traffic).
 
-**Database Schema**
-Table: packets
-
 **Real-Time Reporting**
+
 --Traffic Insights: Displays total packets captured and counts per protocol.
 --Anomaly Detection:
    --Alerts for high TCP/UDP traffic volumes.
 
 
 **Customization**
+
 --Filter Protocols/Ports:
    --Update the filter argument in scapy.sniff to target specific protocols or ports (e.g., "tcp and port 443" for HTTPS traffic).
 
@@ -71,12 +71,15 @@ Table: packets
    --Modify REPORT_INTERVAL (default: 10 seconds) to adjust the reporting frequency.
 
 **Disclaimer**
+
 This tool is for educational purposes only. Unauthorized use of packet sniffing tools may violate laws or regulations in your jurisdiction. Always ensure proper permissions before monitoring network traffic.
 
 **License**
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 **Contributing**
+
 1)Fork the repository.
 2)Create a new branch (feature/new-feature).
 3)Commit changes and open a pull request.
@@ -93,7 +96,7 @@ DNS Query: 192.168.1.5 is querying 8.8.8.8
 Total Packets Captured: 50
 Protocol TCP: 30 packets
 Protocol UDP: 20 packets
-ALERT: Unusually high number of UDP packets detected!
+ALERT: Unusually high number of UDP packets detected!.
 
 
 
