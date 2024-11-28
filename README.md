@@ -33,8 +33,9 @@ This project is a Python-based packet sniffing tool built using the scapy librar
 
 1)Clone the repository:
 
-git clone https://github.com/kunal-Singh01/Network_Analyzer.git
-cd Network_Analyzer
+-- git clone https://github.com/kunal-Singh01/Network_Analyzer.git
+
+-- cd Network_Analyzer
 
 2)Install dependencies:
 
