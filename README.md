@@ -1,4 +1,4 @@
-######################Packet Sniffing and Protocol Analysis#######################
+**Packet Sniffing and Protocol Analysis**
 
 This project is a Python-based packet sniffing tool built using the scapy library. It analyzes network traffic in real time, focusing on HTTP and DNS protocols, logs packet data into an SQLite database, and provides periodic statistical insights.
 
